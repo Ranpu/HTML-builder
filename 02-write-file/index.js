@@ -18,13 +18,13 @@ output.write(`File ${newFileName} has been created!\nEnter your text:\n> `);
 fs.createWriteStream(pathToFile).write('');
 
 readLine.on('line', text => {
-    if (text === 'exit') process.exit();
-    count > 0 ? toFile.write(`\n${text}`) : toFile.write(`${text}`);
-    count++;
-    output.write('> ');
+  if (text === 'exit') process.exit();
+  count > 0 ? toFile.write(`\n${text}`) : toFile.write(`${text}`);
+  count++;
+  output.write('> ');
 });
 
 process.on('exit', () => {
-    output.cursorTo(0);
-    output.write(`See ya!\n`);
+  output.cursorTo(0);
+  output.write(`See ya!\n`);
 });
