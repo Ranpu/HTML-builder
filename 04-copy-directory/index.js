@@ -15,9 +15,9 @@ const makeNewDir = async (pathToNewDir) => {
 const copyFiles = async (pathToOriginalDir, pathToNewDir) => {
   const files = await fs.readdir(pathToOriginalDir);
 
-  files.forEach(file => {
-    fs.copyFile(path.join(pathToOriginalDir, file), path.join(pathToNewDir, file));
-  });
+  for (let file of files) {
+    await fs.copyFile(path.join(pathToOriginalDir, file), path.join(pathToNewDir, file));
+  }
 }
 
 const main = async () => {
